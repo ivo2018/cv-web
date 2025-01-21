@@ -4,7 +4,7 @@ import Home from './components/About';
 import Work from './components/Work';
 import Contact from "./components/Contact";
 import Skills from "./components/Skills";
-//import SelectionPage from "./components/SelectionPage";
+//import SelectionPage from "./components/SelectionPage"az;
 function App() {
   return (
     

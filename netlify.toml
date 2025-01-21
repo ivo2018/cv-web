@@ -2,3 +2,10 @@
 from = "/*"
 to = "/index.html"
 status=200
+[build]
+  publish = "dist" # Cambia "dist" por el directorio de tu proyecto compilado (puede ser "build", "public", etc.)
+  command = "npm run build" # Ajusta este comando si usas otro sistema de build
+
+
+  
+  
