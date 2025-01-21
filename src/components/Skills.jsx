@@ -33,7 +33,7 @@ import world from "../images/Icons/world98.png";
 //import titulo from "../images/Titulo.png";
 //import titulo2 from "../images/Titulo2.png";
 import "../components/Skills.css"
-import public_note from "../images/Skills/public_note.png";
+
 import public_note_yellow from "../images/Skills/public_note_yellow2.png";
 import public_note_blue from "../images/Skills/public_note_blue2.png";
 import public_note_pink from "../images/Skills/public_note_pink2.png";
@@ -47,7 +47,7 @@ const Skills = (/*{setChange,handleClick}*/) => {
     const [bonus, setBonus] = useState(false);
 
     const [notas, setNotas] = useState(false);
-    const [color, setColor] = useState('amarillo');
+    const [setColor] = useState('amarillo');
 
     const [descripcion, setDescripcion] = useState('');
     const [listaNotas, setListaNotas] = useState([]);
