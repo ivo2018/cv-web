@@ -231,6 +231,7 @@ const About = (/*{setChange,handleClick}*/) => {
   const [showSecondText, setShowSecondText] = useState(false);
   
   useEffect(() => {
+    if(animationTyping)
     if (currentIndex < fullText.length) {
       const baseDelay = 1900;
       const totalDelay = currentIndex === 0 ? 0 : baseDelay - 150 * currentIndex;
@@ -248,7 +249,7 @@ const About = (/*{setChange,handleClick}*/) => {
         setTimeout(() => setShowSecondText(true), 6000); // Espera 2 segundos después de la última línea
       }, 1000);
     }
-  } , [fullText,currentIndex]);
+  } , [fullText,currentIndex,animationTyping]);
   
   useEffect(() => {
     if (showSecondText && secondCurrentIndex < secondText.length) {
