@@ -162,7 +162,8 @@ left: 0 !important;
   
   @media(max-width:768px){
     .homePage_content-binary {
-      background: radial-gradient(ellipse,  #d60bff  25%, #d60bff 100%);
+   /*   background: radial-gradient(ellipse,  #d60bff  25%, #d60bff 100%);*/
+   background: white;
 
     /*background: radial-gradient(circle, #f4003575 25%, #d60bff 80%);*/
     box-shadow: inset  5px -20px 150px #02d289!important;
@@ -181,7 +182,8 @@ left: 0 !important;
     /*outline:6px solid  #510e5f;*/
      outline:0px solid  #e7e7e7;
      outline-offset: -5px;
-     background: rgb(132, 130, 130) !important;
+    /* background: rgb(132, 130, 130) !important;*/
+    background: white !important;
      box-shadow: 0 0 10px #979797 !important;
     /*background: radial-gradient(ellipse,  #d60bff  25%, #d60bff 100%);*/
 
@@ -706,26 +708,26 @@ display: inline-block;
 
     width: 40%;
     margin: auto;
-    border:1px solid grey;
+    border:1px solid rgb(189, 182, 182);
   }
   .coding{
     margin-top: 50px;
   }
   #coding2{
-    color:rgb(176 173 173) !important;
-    text-shadow: 2px 2px 2px #f6ebeb, 2px 2px 2px #b7b2b2,2px 2px 2px #83c7d6 !important;
+    color:rgb(90, 86, 86) !important;
+    /*text-shadow: 2px 2px 2px #f6ebeb, 2px 2px 2px #b7b2b2,2px 2px 2px #83c7d6 !important;*/
     
     }
   @media(max-width:768px){
     #coding2{
 
-      text-shadow: rgba(255, 255, 255, 0.57) 0px 2px 1px, rgba(2, 255, 255, 0.33) 0px 3px 1px, rgba(125, 255, 255, 0.33) 0px 6px 1px !important;
+     /* text-shadow: rgba(255, 255, 255, 0.57) 0px 2px 1px, rgba(2, 255, 255, 0.33) 0px 3px 1px, rgba(125, 255, 255, 0.33) 0px 6px 1px !important;*/
     }
     }
   
   .coding div {
     /*text-shadow: 2px 2px 2px #13c42c ,2px 2px 4px #f0efef ;*/
-    text-shadow: 2px 2px 2px #c3f2c9, 2px 2px 4px #f0efef;
+    /*text-shadow: 2px 2px 2px #c3f2c9, 2px 2px 4px #f0efef;*/
   }
 
   .coding img{
@@ -853,7 +855,7 @@ display: inline-block;
 
 .homePage__content-description h2 {
   color: rgb(51, 41, 41);
-  text-shadow: 2px 2px wheat;
+  text-shadow: 2px 2px #d0d2de;
   font-family: 'Minecraft', sans-serif;
   font-size: 2em ;
   font-weight: 100 ;
@@ -1562,7 +1564,8 @@ outline-offset: -5px; /* Ajusta la distancia del bordeado interno */
 
   .homePage_content-binary {
 
-    background-color: rgba(19, 235, 235, 0.836);
+    /*background-color: rgba(19, 235, 235, 0.836);*/
+    background: white;
 
     width: 96%;
     height: 89.99%;
@@ -1703,7 +1706,7 @@ outline-offset: -5px; /* Ajusta la distancia del bordeado interno */
 }
 
 .text-box {
-  background: #fff;
+  background: #fffdfd;
   padding: 2.5rem 4rem;
   border-radius: 20px;
   box-shadow: 0 15px 35px rgba(0,0,0,0.2);
@@ -1716,7 +1719,7 @@ outline-offset: -5px; /* Ajusta la distancia del bordeado interno */
   transform: translateY(-5%); /* Posición más alta */
 }
 .text-box2 {
-  background: #fff;
+  background: #fffdfd;
   padding: 2.5rem 4rem;
   border-radius: 20px;
   box-shadow: 0 15px 35px rgba(0,0,0,0.2);

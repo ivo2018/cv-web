@@ -11,7 +11,7 @@ export function carouselMove(){
 }
 
 export function titleEffect() {
-    var code = document.getElementById('coding2');
+  /*  var code = document.getElementById('code');*/
     var titlePageName = document.getElementById('content-title');
     var element = document.querySelector('.homePage');
 
@@ -21,9 +21,9 @@ export function titleEffect() {
             var shadowX2 = 0, shadowY2 = 15;
             var shadowX3 = 0, shadowY3 = 15;
 
-            var shadowXcode = 0, shadowYcode = 2;
+      /*      var shadowXcode = 0, shadowYcode = 2;
             var shadowX2code = 0, shadowY2code = 2;
-            var shadowX3code = 0, shadowY3code = 2;
+            var shadowX3code = 0, shadowY3code = 2;*/
             
             console.log("el valor de x es:", event.movementX);
             console.log("el valor de y es:", event.movementY);
@@ -38,13 +38,13 @@ export function titleEffect() {
                 shadowY2 = 27;
                 shadowY3 = 20;
 
-                shadowXcode = 2;
+              /*  shadowXcode = 2;
                 shadowX2code = 6;
                 shadowX3code = 3;
 
                 shadowYcode = 2;
                 shadowY2code = 6;
-                shadowY3code = 3;
+                shadowY3code = 3;*/
             // Movimiento en diagonal hacia abajo a la izquierda
             } else if (event.movementX < 0 && event.movementY > 0) {
                 shadowX = -15;
@@ -55,13 +55,13 @@ export function titleEffect() {
                 shadowY2 = 27;
                 shadowY3 = 20;
 
-                shadowXcode = -2;
+         /*       shadowXcode = -2;
                 shadowX2code = -6;
                 shadowX3code = -3;
 
                 shadowYcode = 2;
                 shadowY2code = 6;
-                shadowY3code = 3;
+                shadowY3code = 3;*/
             // Movimiento en diagonal hacia arriba a la derecha
             } else if (event.movementX > 0 && event.movementY < 0) {
                 shadowX = 15;
@@ -72,13 +72,13 @@ export function titleEffect() {
                 shadowY2 = -27;
                 shadowY3 = -20;
 
-                shadowXcode = 2;
+           /*     shadowXcode = 2;
                 shadowX2code = 6;
                 shadowX3code = 3;
 
                 shadowYcode = -2;
                 shadowY2code = -6;
-                shadowY3code = -3;
+                shadowY3code = -3;*/
             // Movimiento en diagonal hacia arriba a la izquierda
             } else if (event.movementX < 0 && event.movementY < 0) {
                 shadowX = -15;
@@ -89,13 +89,13 @@ export function titleEffect() {
                 shadowY2 = -27;
                 shadowY3 = -20;
 
-                shadowXcode = -2;
+           /*     shadowXcode = -2;
                 shadowX2code = -6;
                 shadowX3code = -3;
 
                 shadowYcode = -2;
                 shadowY2code = -6;
-                shadowY3code = -3;
+                shadowY3code = -3;*/
             // Movimiento solo a la derecha
             } else if (event.movementX > 0 && event.movementY === 0) {
                 shadowX = 15;
@@ -106,13 +106,13 @@ export function titleEffect() {
                 shadowY2 = 0;
                 shadowY3 = 0;
 
-                shadowXcode = 2;
+             /*   shadowXcode = 2;
                 shadowX2code = 6;
                 shadowX3code = 3;
 
                 shadowYcode = 0;
                 shadowY2code = 0;
-                shadowY3code = 0;
+                shadowY3code = 0;*/
             // Movimiento solo a la izquierda
             } else if (event.movementX < 0 && event.movementY === 0) {
                 shadowX = -15;
@@ -123,13 +123,13 @@ export function titleEffect() {
                 shadowY2 = 0;
                 shadowY3 = 0;
 
-                shadowXcode = -2;
+              /*  shadowXcode = -2;
                 shadowX2code = -6;
                 shadowX3code = -3;
 
                 shadowYcode = 0;
                 shadowY2code = 0;
-                shadowY3code = 0;
+                shadowY3code = 0;*/
             // Movimiento solo hacia abajo
             } else if (event.movementX === 0 && event.movementY > 0) {
                 shadowX = 0;
@@ -140,13 +140,13 @@ export function titleEffect() {
                 shadowY2 = 27;
                 shadowY3 = 20;
 
-                shadowXcode = 0;
+                /*shadowXcode = 0;
                 shadowX2code = 0;
                 shadowX3code = 0;
 
                 shadowYcode = 2;
                 shadowY2code = 6;
-                shadowY3code = 3;
+                shadowY3code = 3;*/
             // Movimiento solo hacia arriba
             } else if (event.movementX === 0 && event.movementY < 0) {
                 shadowX = 0;
@@ -157,13 +157,13 @@ export function titleEffect() {
                 shadowY2 = -27;
                 shadowY3 = -20;
 
-                shadowXcode = 0;
+           /*     shadowXcode = 0;
                 shadowX2code = 0;
                 shadowX3code = 0;
 
                 shadowYcode = -2;
                 shadowY2code = -6;
-                shadowY3code = -3;
+                shadowY3code = -3;*/
             } else {
                 // No hay movimiento
                 shadowX = 0;
@@ -174,13 +174,13 @@ export function titleEffect() {
                 shadowY2 = 0;
                 shadowY3 = 0;
 
-                shadowXcode = 0;
+          /*      shadowXcode = 0;
                 shadowX2code = 0;
                 shadowX3code = 0;
 
                 shadowYcode = 0;
                 shadowY2code = 0;
-                shadowY3code = 0;
+                shadowY3code = 0;*/
             }
 
             // Aplica la sombra con transición
@@ -188,8 +188,8 @@ export function titleEffect() {
             /*ESTE COLOR ME GUSTA : 255, 255, 2, 0.568) */
             titlePageName.style.boxShadow = `${shadowX}px ${shadowY}px 5px -2px rgba(90, 255, 255, 0.568), ${shadowX3}px ${shadowY3}px 4px 1.5px rgba(125, 255, 215, 0.328), ${shadowX2}px ${shadowY2}px 4px 1.5px rgba(255, 255, 255, 0.328)`;
 
-            code.style.transition = "0.8s all";
-            code.style.textShadow = `${shadowXcode}px ${shadowYcode}px 1px rgba(255, 255, 255, 0.568), ${shadowX3code}px ${shadowY3code}px 1px rgba(2, 255, 255, 0.328), ${shadowX2code}px ${shadowY2code}px 1px rgba(125, 255, 255, 0.328)`;
+           /* code.style.transition = "0.8s all";
+            code.style.textShadow = `${shadowXcode}px ${shadowYcode}px 1px rgba(255, 255, 255, 0.568), ${shadowX3code}px ${shadowY3code}px 1px rgba(2, 255, 255, 0.328), ${shadowX2code}px ${shadowY2code}px 1px rgba(125, 255, 255, 0.328)`;*/
         });
     }
 }
