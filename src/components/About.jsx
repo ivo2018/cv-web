@@ -15,7 +15,7 @@ import world from "../images/Icons/world98.png";
 //import SelectionPage from './SelectionPage';
 import "../components/About.css";
 import { closeWindow, openWindow } from "../functions/eventsFunction";
-import { titleEffect } from "../functions/eventsFunction";
+/*import { titleEffect } from "../functions/eventsFunction";*/
 
 import { FolderDecide } from "../functions/eventsFunction";
 import { useMemo } from "react";
@@ -43,9 +43,10 @@ const About = (/*{setChange,handleClick}*/) => {
   /*const handleClick = () => {
     setIsAnimationActive(true);
   };*/
+  /*
   useEffect(() => {
     titleEffect();
-  });
+  });*/
  
   useEffect(() => {
     const audioElement = audioElementRef.current;
@@ -264,6 +265,98 @@ const About = (/*{setChange,handleClick}*/) => {
       return () => clearTimeout(timer);
     }
   }, [showSecondText, secondCurrentIndex,secondText]);
+  const [selectedColor, setSelectedColor] = useState('#99ffff');
+  
+  const ColorPicker = ({ onColorChange, color: parentColor }) => {
+    const [localColor, setLocalColor] = useState(selectedColor);
+    const [rgb, setRgb] = useState({ r: '', g: '', b: ''});
+  
+    const handleHexChange = (e) => {
+      const value = e.target.value;
+      if (/^#[0-9A-Fa-f]{6}$/.test(value)) {
+        setLocalColor(value);
+        // Convertir HEX a RGB
+        const r = parseInt(value.slice(1, 3), 16);
+        const g = parseInt(value.slice(3, 5), 16);
+        const b = parseInt(value.slice(5, 7), 16);
+        setRgb({ r, g, b });
+        onColorChange(value);  // <-- Actualiza el estado del padre
+      }
+    };
+  
+    const handleRgbChange = (channel, value) => {
+      const newRgb = { ...rgb, [channel]: Math.min(255, Math.max(0, value)) };
+      setRgb(newRgb);
+      // Convertir RGB a HEX
+      const hex = `#${[
+        newRgb.r.toString(16).padStart(2, '0'),
+        newRgb.g.toString(16).padStart(2, '0'),
+        newRgb.b.toString(16).padStart(2, '0')
+      ].join('')}`;
+      setLocalColor(hex);
+      onColorChange(hex);  // <-- Actualiza el estado del padre
+    };
+  
+    return (
+      <div className="color-picker">
+        <div 
+          className="color-preview"
+          style={{ 
+            backgroundColor: localColor,
+            width: '20px',
+            height: '20px',
+            margin: '20px auto',
+            border: '1px solid #ccc'
+          }}
+        ></div>
+  
+        <div className="controls">
+          <div className="hex-input">
+            <label>HEX:</label>
+            <input
+              type="text"
+              value={localColor}
+              onChange={handleHexChange}
+              pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+            />
+          </div>
+  
+          {['r', 'g', 'b'].map((channel) => (
+            <div key={channel} className="rgb-slider">
+              <label>{channel.toUpperCase()}:</label>
+              <input
+                type="range"
+                min="0"
+                max="255"
+                value={rgb[channel]}
+                onChange={(e) => handleRgbChange(channel, parseInt(e.target.value))}
+              />
+              <span>{rgb[channel]}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+  
+  // Componente que usa el color seleccionado
+  const ColoredComponent = ({ color }) => {
+    return (
+      <div 
+        style={{
+          backgroundColor: color,
+          padding: '20px',
+          margin: '10px',
+          color: 'white',
+          textAlign: 'center',
+          display:'none'
+        }}
+      >
+        Componente afectado por el color
+      </div>
+    );
+  };
+
   return (
     <div>
       <button id="html-button3">
@@ -277,6 +370,11 @@ const About = (/*{setChange,handleClick}*/) => {
         loop
       ></audio>
       <div class="homePage">
+           <div style={{position:"absolute",left:"0px",top:"70%"}}>
+           <ColorPicker onColorChange={(newColor) => setSelectedColor(newColor)} />
+      <ColoredComponent color={selectedColor} />
+      <ColoredComponent color={selectedColor} />
+    </div>
         <div class="homePage__folders">
           <div
             class="homePage__folders-work"
@@ -298,6 +396,7 @@ const About = (/*{setChange,handleClick}*/) => {
               <a href="/#">Skills</a>
             </button>
           </div>
+          
           <div
             class="homePage__folders-about"
             onClick={() => navigate("/") + FolderDecide("about") + openWindow()}
@@ -307,6 +406,7 @@ const About = (/*{setChange,handleClick}*/) => {
               <a href=" ">About</a>
             </button>
           </div>
+          
           <div
             class="homePage__folders-message"
             onClick={() => navigate("/contact") + FolderDecide("contact")}
@@ -319,8 +419,16 @@ const About = (/*{setChange,handleClick}*/) => {
               <a href="/contact">Contact</a>
             </button>
           </div>
+       
         </div>
+        
+        <div>
+          
+        </div>
+        
+        
         <div id="windowAbout" class="homePage__about">
+          
           <div class="homePage__about-title">
             <a href=" ">About</a>
             <img src={close} alt="" onClick={() => closeWindow()}></img>
@@ -346,17 +454,17 @@ const About = (/*{setChange,handleClick}*/) => {
               />
 
               <div class="homePage__content-title">
-                <h1
-                  id="content-title"
-                  style={
-                    isAnimationActive
-                      ? {
-                          animation: "psychedelicClickName 5s linear infinite",
-                          boxShadow: "0px -120px 120px inset #ef43fffb",
-                        }
-                      : {}
-                  }
-                >
+              <h1
+  id="content-title"
+  style={
+    isAnimationActive
+      ? {
+          animation: "psychedelicClickName 5s linear infinite",
+        // Quita el !important
+        }
+      : { boxShadow: `5px 5px 5px 5px ${selectedColor}80`,}
+  }
+>
                   Ivo Ortiz
                 </h1>
               </div>
@@ -394,7 +502,9 @@ const About = (/*{setChange,handleClick}*/) => {
                         : { display: "none" }
                     }
                   >
+                    
                      <div className="text-container">
+                      
                      <div className="text-box" style={showSecondText ? { display: "none" } : {}}>
   {visibleLines.map((line, index) => (
     <p 
