@@ -19,7 +19,9 @@ import { closeWindow, openWindow } from "../functions/eventsFunction";
 
 import { FolderDecide } from "../functions/eventsFunction";
 import { useMemo } from "react";
+import { SketchPicker } from "react-color"; // Importamos la paleta personalizada
 //import { Default as ScrollViewComponent } from "./MonitorComponent";
+import regulador from "../images/regulador.png";
 
 const About = (/*{setChange,handleClick}*/) => {
   const navigate = useNavigate();
@@ -33,6 +35,7 @@ const About = (/*{setChange,handleClick}*/) => {
   const [isAnimationActive /*, setIsAnimationActive*/] = useState(false);
  /* const [/*isDisintegrating,*setIsDisintegrating] = useState(false);*/
   const [animationTyping, setAnimationTyping] = useState(false);
+ 
   /*const [animationTyping2, setAnimationTyping2] = useState(false);*/
   const audioElementRef = useRef(null);
 
@@ -265,97 +268,82 @@ const About = (/*{setChange,handleClick}*/) => {
       return () => clearTimeout(timer);
     }
   }, [showSecondText, secondCurrentIndex,secondText]);
-  const [selectedColor, setSelectedColor] = useState('#99ffff');
+  const ColorPicker = ({ onColorChange, onClose, color: parentColor }) => {
+    const [localColor, setLocalColor] = useState(parentColor);
   
-  const ColorPicker = ({ onColorChange, color: parentColor }) => {
-    const [localColor, setLocalColor] = useState(selectedColor);
-    const [rgb, setRgb] = useState({ r: '', g: '', b: ''});
-  
-    const handleHexChange = (e) => {
-      const value = e.target.value;
-      if (/^#[0-9A-Fa-f]{6}$/.test(value)) {
-        setLocalColor(value);
-        // Convertir HEX a RGB
-        const r = parseInt(value.slice(1, 3), 16);
-        const g = parseInt(value.slice(3, 5), 16);
-        const b = parseInt(value.slice(5, 7), 16);
-        setRgb({ r, g, b });
-        onColorChange(value);  // <-- Actualiza el estado del padre
-      }
-    };
-  
-    const handleRgbChange = (channel, value) => {
-      const newRgb = { ...rgb, [channel]: Math.min(255, Math.max(0, value)) };
-      setRgb(newRgb);
-      // Convertir RGB a HEX
-      const hex = `#${[
-        newRgb.r.toString(16).padStart(2, '0'),
-        newRgb.g.toString(16).padStart(2, '0'),
-        newRgb.b.toString(16).padStart(2, '0')
-      ].join('')}`;
-      setLocalColor(hex);
-      onColorChange(hex);  // <-- Actualiza el estado del padre
+    const handleColorChange = (newColor) => {
+      setLocalColor(newColor.hex);
+      onColorChange(newColor.hex); // Se actualiza el color
     };
   
     return (
-      <div className="color-picker">
-        <div 
-          className="color-preview"
-          style={{ 
-            backgroundColor: localColor,
-            width: '20px',
-            height: '20px',
-            margin: '20px auto',
-            border: '1px solid #ccc'
+      
+      <div
+        className="color-picker-container"
+        style={{
+          display: "inline-block",
+          background: "white",
+          padding: "10px",
+          borderRadius: "10px",
+          boxShadow: "0 0 10px rgba(0,0,0,0.2)",
+          top: "50px",
+          left: "50px",
+          margin:"auto",
+          marginTop:"-40%",
+          marginLeft:"-40%",
+          zIndex: 100,
+        }}
+      >
+               <button
+          onClick={onClose}
+          style={{
+            marginTop: "10px",
+            margin:"auto",
+
+            display: "flex",
+            justifyContent:"center",
+            alignItems:"center",
+            background: `${selectedColor}`,
+            color: "white",
+            border: "none",
+            padding: "5px 10px",
+            cursor: "pointer",
+            borderRadius: "5px",
+            marginBottom:"6px",
           }}
-        ></div>
+        >
+          Cerrar
+      
+        </button>
+        {/* Paleta SketchPicker */}
+        <SketchPicker color={localColor} onChange={handleColorChange} />
   
-        <div className="controls">
-          <div className="hex-input">
-            <label>HEX:</label>
-            <input
-              type="text"
-              value={localColor}
-              onChange={handleHexChange}
-              pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-            />
-          </div>
-  
-          {['r', 'g', 'b'].map((channel) => (
-            <div key={channel} className="rgb-slider">
-              <label>{channel.toUpperCase()}:</label>
-              <input
-                type="range"
-                min="0"
-                max="255"
-                value={rgb[channel]}
-                onChange={(e) => handleRgbChange(channel, parseInt(e.target.value))}
-              />
-              <span>{rgb[channel]}</span>
-            </div>
-          ))}
-        </div>
+        {/* Botón para cerrar la paleta */}
+ 
       </div>
     );
   };
   
-  // Componente que usa el color seleccionado
+  // Componente afectado por el color
   const ColoredComponent = ({ color }) => {
     return (
-      <div 
+      <div
         style={{
           backgroundColor: color,
-          padding: '20px',
-          margin: '10px',
-          color: 'white',
-          textAlign: 'center',
-          display:'none'
+          padding: "20px",
+          margin: "10px",
+          color: "white",
+          textAlign: "center",
+          display: "none",
         }}
       >
         Componente afectado por el color
       </div>
     );
   };
+  const [selectedColor, setSelectedColor] = useState(/*"#0BB58E"*/"#324641");
+  const [showColorPicker, setShowColorPicker] = useState(false);
+  const underlineColor = selectedColor;
 
   return (
     <div>
@@ -370,8 +358,32 @@ const About = (/*{setChange,handleClick}*/) => {
         loop
       ></audio>
       <div class="homePage">
-           <div style={{position:"absolute",left:"0px",top:"70%"}}>
-           <ColorPicker onColorChange={(newColor) => setSelectedColor(newColor)} />
+      <div style={{ position: "absolute", left: "-16px", top: "70%" }}>
+      {/* Botón para mostrar la paleta */}
+      <button
+      class="regulador-button"
+        onClick={() => setShowColorPicker(!showColorPicker)}
+        style={{
+          marginBottom: "10px",
+          marginLeft:"120px",
+          padding: "5px 10px",
+          cursor: "pointer",
+        }}
+      >
+  {/*       {/*showColorPicker ? "Ocultar Paleta" : "Mostrar Paleta"}*/}
+         <img class="regulador" src={regulador} alt="" style={{width:"65px"}} />
+         <a href="#a">Colors</a>
+      </button>
+
+      {/* Mostrar el selector solo si showColorPicker es true */}
+      {showColorPicker && (
+        <ColorPicker
+          onColorChange={(newColor) => setSelectedColor(newColor)}
+          onClose={() => setShowColorPicker(false)}
+          color={selectedColor}
+        />
+      )}
+
       <ColoredComponent color={selectedColor} />
       <ColoredComponent color={selectedColor} />
     </div>
@@ -453,7 +465,7 @@ const About = (/*{setChange,handleClick}*/) => {
                 alt=""
               />
 
-              <div class="homePage__content-title">
+              <div class="homePage__content-title" style={{textShadow:`2px -4px ${selectedColor}`}}>
               <h1
   id="content-title"
   style={
@@ -479,8 +491,8 @@ const About = (/*{setChange,handleClick}*/) => {
                             </div>*/}
 
                 <div id="code">
-                  <button className="coding" onClick={() => changeAudio(0)}>
-                    <div id="coding2" style={{ display: "inline-block" }}>
+                  <button className="coding" onClick={() => changeAudio(0)} style={{border:`2px ${selectedColor} solid`}}>
+                    <div id="coding2" style={{ display: "inline-block"}}>
                       Start
                       <br></br>
                       &lt;/&gt;
@@ -495,7 +507,7 @@ const About = (/*{setChange,handleClick}*/) => {
                   ></audio>
                 </div>
                 <div>
-                  <div
+                  <div 
                     style={
                       animationTyping
                         ? { display: "inline-block" }
@@ -505,7 +517,7 @@ const About = (/*{setChange,handleClick}*/) => {
                     
                      <div className="text-container">
                       
-                     <div className="text-box" style={showSecondText ? { display: "none" } : {}}>
+                     <div className="text-box" style={showSecondText ? { display: "none" } : {border:`${selectedColor} 2px solid`}}>
   {visibleLines.map((line, index) => (
     <p 
       key={index} 
@@ -521,7 +533,7 @@ const About = (/*{setChange,handleClick}*/) => {
           <span 
             key={charIndex}
             className={`char ${allLinesVisible && isImaginationWord ? 'highlight-char' : ''}`}
-            style={{ animationDelay: `${charIndex * 0.03}s` }}
+            style={{ animationDelay: `${charIndex * 0.03}s` ,"--underline-color": underlineColor }}
           >
             {char}
           </span>
@@ -531,7 +543,7 @@ const About = (/*{setChange,handleClick}*/) => {
   ))}
 </div>
 
-<div className="text-box2" style={showSecondText ? { display: "block" } : {display:"none"}}>
+<div className="text-box2" style={showSecondText ? { display: "block",border:`${selectedColor} 2px solid` } : {display:"none"}}>
   {secondVisibleLines.map((line, index) => (
     <p 
       key={`second-${index}`} 
@@ -547,7 +559,7 @@ const About = (/*{setChange,handleClick}*/) => {
           <span 
             key={charIndex}
             className={`char ${allLinesVisible && isWorkWord ? 'highlight-char' : ''}`}
-            style={{ animationDelay: `${charIndex * 0.03}s`}}
+            style={{ animationDelay: `${charIndex * 0.03}s`,"--underline-color": underlineColor}}
           >
             {char}
           </span>
