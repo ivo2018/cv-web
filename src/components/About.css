@@ -1863,7 +1863,7 @@ outline-offset: -5px; /* Ajusta la distancia del bordeado interno */
     left: 0;
     width: 0;
     height: 1.5px;
-    background: linear-gradient(90deg, #6bffdf, #43ffec);
+ 
     animation: underline-animation 0.6s ease-out forwards;
     z-index: 1;
   }

@@ -47,7 +47,7 @@ const Skills = (/*{setChange,handleClick}*/) => {
     const [bonus, setBonus] = useState(false);
 
     const [notas, setNotas] = useState(false);
-    const [setColor] = useState('amarillo');
+    
 
     const [descripcion, setDescripcion] = useState('');
     const [listaNotas, setListaNotas] = useState([]);
@@ -60,7 +60,7 @@ const Skills = (/*{setChange,handleClick}*/) => {
 
     const handleColorChange = async (color) => { 
         // Verifica que notaSeleccionada tenga un ID válido
-        setColor(color);
+    
         if (!notaSeleccionada) return; // Asegúrate de que haya una nota seleccionada
     
         // Actualiza el color de la nota seleccionada en el estado
