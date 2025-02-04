@@ -1911,7 +1911,7 @@ text-decoration: none;
     position: fixed !important;
     left: 40% !important;
     top: 8% !important;
-  
+  z-index: 250 !important;
     
   }
   .color-picker-container{
