@@ -1908,9 +1908,10 @@ text-decoration: none;
   }
   .regulador-father{
     width: 0px;
-    position: relative !important;
-    left: 0px !important;
-    top: -100px !important;
+    position: fixed !important;
+    left: 40% !important;
+    top: 8% !important;
+  
     
   }
   .color-picker-container{
