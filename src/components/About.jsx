@@ -21,7 +21,7 @@ import { FolderDecide } from "../functions/eventsFunction";
 import { useMemo } from "react";
 import { SketchPicker } from "react-color"; // Importamos la paleta personalizada
 //import { Default as ScrollViewComponent } from "./MonitorComponent";
-import regulador from "../images/regulador.png";
+import skills2 from "../images/skills2.png";
 
 const About = (/*{setChange,handleClick}*/) => {
   const navigate = useNavigate();
@@ -268,13 +268,21 @@ const About = (/*{setChange,handleClick}*/) => {
       return () => clearTimeout(timer);
     }
   }, [showSecondText, secondCurrentIndex,secondText]);
+  
+
+  
+  // Ejemplo de uso en React
+
+  
   const ColorPicker = ({ onColorChange, onClose, color: parentColor }) => {
+    
     const [localColor, setLocalColor] = useState(parentColor);
   
     const handleColorChange = (newColor) => {
       setLocalColor(newColor.hex);
       onColorChange(newColor.hex); // Se actualiza el color
     };
+    console.log("el onclose dice ",selectedColor)
   
     return (
       
@@ -303,9 +311,11 @@ const About = (/*{setChange,handleClick}*/) => {
             display: "flex",
             justifyContent:"center",
             alignItems:"center",
-            background: `${selectedColor}`,
+            background: `${selectedColor +"7A" }`,
             color: "white",
-            border: "none",
+            border: "1px solid lightgray ",
+            boxShadow:"0px 0px 1.5px 0px",
+
             padding: "5px 10px",
             cursor: "pointer",
             borderRadius: "5px",
@@ -345,6 +355,7 @@ const About = (/*{setChange,handleClick}*/) => {
   const [showColorPicker, setShowColorPicker] = useState(false);
   const underlineColor = selectedColor;
 
+
   return (
     <div>
       <button id="html-button3">
@@ -371,8 +382,8 @@ const About = (/*{setChange,handleClick}*/) => {
         }}
       >
   {/*       {/*showColorPicker ? "Ocultar Paleta" : "Mostrar Paleta"}*/}
-         <img class="regulador" src={regulador} alt="" style={{width:"65px"}} />
-         <a href="#a">Colors</a>
+         <img class="regulador" src={skills} alt="" style={{height:"auto"}} />
+        {/*  <a href="#a"></a>*/}
       </button>
 
       {/* Mostrar el selector solo si showColorPicker es true */}
@@ -403,7 +414,7 @@ const About = (/*{setChange,handleClick}*/) => {
             class="homePage__folders-skills"
             onClick={() => navigate("/skills") + FolderDecide("skills")}
           >
-            <img src={skills} alt="folder" />
+            <img src={skills2} alt="folder" />
             <button id="skills">
               <a href="/#">Skills</a>
             </button>

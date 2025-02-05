@@ -1885,14 +1885,22 @@ outline-offset: -5px; /* Ajusta la distancia del bordeado interno */
 
 /* Mantener todos los estilos existentes sin cambios */
 .regulador{
+
   display: block;
   margin: auto;
   height: 4em;
   width: 3.3em;
-  margin-top: -100%;
+
  
   
 }
+.sketch-picker {
+  background: rgb(255 255 255 / 78%)  !important;
+  
+ }
+ .color-picker-container{
+  background: rgb(124 124 124 / 78%) !important;
+ }
 .regulador-button a{
 
   color: white;
@@ -1927,5 +1935,20 @@ text-decoration: none;
     margin:0px auto !important;
     writing-mode: vertical-lr;
     width: 1px;
+}
+
+.regulador{
+  position: fixed;
+  display: block;
+  margin: auto;
+  height: 4em;
+  width: 3.3em;
+top:3px !important;
+ 
+  
+}
+.sketch-picker {
+ background: darkgray !important;
+ 
 }
 }
