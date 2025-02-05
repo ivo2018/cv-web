@@ -289,6 +289,9 @@ inset 0px 0px 25px 2px rgb(255, 255, 255),0px 0px 20px 1px rgba(0, 0, 0, 0),
 
 }
 @media (max-width:768px){
+    #pack_notas{
+        margin-left: 120px !important;
+    }
     #pack_notas img{
         width: 32px !important;
         height: 32px !important;
