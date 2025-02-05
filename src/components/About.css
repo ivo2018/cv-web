@@ -1236,7 +1236,8 @@ z-index: 0;
   height: 0.8em;
   object-fit: scale-down;
   /*background-color: rgb(170, 182, 182);*/
-  background-color: rgb(205, 220, 220);
+  /*background-color: rgb(205, 220, 220);*/
+  background-color: white;
  /* background-color: var(--underline-color);*/
  /* border: 4px outset var(--underline-color);*/
 }
