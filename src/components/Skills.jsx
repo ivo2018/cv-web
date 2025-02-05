@@ -399,7 +399,7 @@ const Skills = (/*{setChange,handleClick}*/) => {
 
                             </div>
                             <div id="bigItem" className="collectionBigItem" >
-                                <div ><button style={{ color: "red" }} onClick={() => setBonus(true)} >Bonus</button></div>
+                                <div ><button style={{ color: "red",display:"none" }} onClick={() => setBonus(true)} >Bonus</button></div>
                                 <div
   className="bigItem__border"
   style={
