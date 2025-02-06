@@ -30,7 +30,7 @@ import WhiteNote from "../images/Skills/WhiteNote2.png";
 import PinkNote from "../images/Skills/PinkNote2.png"
 import vtex from "../images/Skills/vtex.png";
 import world from "../images/Icons/world98.png";
-import contenedor_note from "../images/Skills/contenedor-note.png"
+
 //import titulo from "../images/Titulo.png";
 //import titulo2 from "../images/Titulo2.png";
 import "../components/Skills.css"
