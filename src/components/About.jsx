@@ -485,7 +485,8 @@ const About = (/*{setChange,handleClick}*/) => {
           animation: "psychedelicClickName 5s linear infinite",
         // Quita el !important
         }
-      : { boxShadow: `5px 5px 5px 5px ${selectedColor}80`,}
+        
+      : { boxShadow: ` 5px 5px 5px 5px  ${selectedColor}80`, "--underline-color": underlineColor}
   }
 >
                   Ivo Ortiz
