@@ -828,6 +828,14 @@ line-height: 0px;
     margin: auto;
     position: relative;
     z-index: 300;
+  /*  background-image:url(../images/Skills/contenedor-note.png);*/
+/*width: 30% !important;
+height: 30% !important;*/
+background-size: 100% 100%;  /* Fuerza a la imagen a ocupar el contenedor sin recortar */
+background-position: center;  
+background-repeat: no-repeat;
+
+ 
 }
 
 .formulario {

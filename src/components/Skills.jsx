@@ -30,6 +30,7 @@ import WhiteNote from "../images/Skills/WhiteNote2.png";
 import PinkNote from "../images/Skills/PinkNote2.png"
 import vtex from "../images/Skills/vtex.png";
 import world from "../images/Icons/world98.png";
+import contenedor_note from "../images/Skills/contenedor-note.png"
 //import titulo from "../images/Titulo.png";
 //import titulo2 from "../images/Titulo2.png";
 import "../components/Skills.css"
@@ -646,7 +647,7 @@ const Skills = (/*{setChange,handleClick}*/) => {
 
                             </div>
 
-                            <div className="pizarra" style={notas ? { display: 'block' } : { display: 'none' }}>
+                            <div className="pizarra" style={notas ? { display: 'block'  } : { display: 'none' }}>
     <form
         onSubmit={handleAddNota}
         className="formulario"
@@ -659,7 +660,7 @@ const Skills = (/*{setChange,handleClick}*/) => {
             value={descripcion}
             onChange={(e) => setDescripcion(e.target.value)}
         />
-        <button type="submit" className="boton">Guardar</button>
+        <button type="submit" className="boton" style={{background:"#313157"}}>Guardar</button>
     </form>
 </div>
 
