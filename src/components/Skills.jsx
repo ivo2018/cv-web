@@ -335,6 +335,11 @@ const Skills = (/*{setChange,handleClick}*/) => {
             <img src={world} onClick={() => closeWindow()} alt="" />
         </button>
             <div class="homePage">
+            <div class="regulador-father" style={{ position: "absolute", left: "-16px", top: "70%" }}>
+                    <button id="pack_notas" style={{marginLeft:'15px',position:'relative' ,zIndex:'50'}} onClick={() => setNotas(true)} >
+                                <img src={pack_notas} alt=""  style={{ width: '3.3em', height: '', marginRight: '10px' }}/>
+                                </button>
+                                </div>
                 <div class="homePage__folders">
                     <div class="homePage__folders-work" onClick={() => navigate("/work") + FolderDecide("work")}   /*onClick ={ function() { setChange('cameron') }} */ >
                         <img src={folder} alt="folder" />
@@ -368,11 +373,7 @@ const Skills = (/*{setChange,handleClick}*/) => {
                             </a>
                         </button>
                     </div>
-                    <div class="regulador-father" style={{ position: "absolute", left: "-16px", top: "70%" }}>
-                    <button id="pack_notas" style={{marginLeft:'15px',position:'relative' ,zIndex:'50'}} onClick={() => setNotas(true)} >
-                                <img src={pack_notas} alt=""  style={{ width: '60px', height: '50px', marginRight: '10px' }}/>
-                                </button>
-                                </div>
+
                                 </div>
            
                 <div id="windowAbout" class="homePage__about" >
