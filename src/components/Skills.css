@@ -597,7 +597,7 @@ inset 0px 0px 25px 2px rgb(255, 255, 255),0px 0px 20px 1px rgba(0, 0, 0, 0),
  /*
  text-shadow: 1px 1px 1px #a89e9e, 1px 1px 1px #b7b2b2, 1px 1px 1px #83c7d6 !important;*/
  /*text-shadow: 1px 1px 1px #f6ebeb, 0px -1px 5px #000000fa, 1px 1px 1px #000000 !important;*/
- text-shadow: 1px 1px 1px #a69999, 0px 4px 5px #00000042, 1px 1px 1px #00000000 !important;
+ text-shadow: 1px 1px 1px #a69999, 0px 4px 5px #00000042, 1px 1px 1px #ffffff !important;
  font-family: "Orbitron", sans-serif;
     justify-content: space-around;
     align-items: center;
@@ -683,7 +683,7 @@ width: 50%;
     text-shadow: 1px 1px rgb(191 173 173), -2px -2px whitesmoke, 2px 2px 3px;
 }
 .itemTitle{
-    font-weight: 800;
+    font-weight: 500;
 }
 
 #bigItemContent div {
@@ -786,7 +786,7 @@ margin: 2px;
  -webkit-background-clip: text;
  -webkit-text-fill-color: transparent;
 
- text-shadow: 1px 1px 1px #a69999, 0px 4px 5px #00000042, 1px 1px 1px #00000000 !important;
+ text-shadow: 1px 1px 1px #a69999, 0px 4px 5px #00000042, 1px 1px 1px #ffffff !important;
  font-family: "Orbitron", sans-serif;
     justify-content: space-around;
     align-items: center;

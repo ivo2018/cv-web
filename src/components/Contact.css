@@ -235,7 +235,7 @@ input[type="submit"] {
     text-shadow: 2px 2px rgb(122, 136, 136);
     text-align: center;
     padding-bottom: 20px;
-}
+}.iconItem2, .iconItem
 
 input[type="submit"]:hover {
   /*  background-color: #01090e;*/

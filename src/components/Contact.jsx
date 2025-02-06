@@ -1,10 +1,10 @@
 import React,{useEffect,useState,useRef} from 'react';
 import { useNavigate } from "react-router-dom";
 import folder from "../images/folder.png"
-import skills from "../images/skills.png"
+
 import about from "../images/about.png"
 import close from "../images/close-icon.png";
-
+import skills from "../images/skills2.png";
 import "../components/About.css"
 import { closeWindow, openWindow } from '../functions/eventsFunction';
 import { FolderDecide } from '../functions/eventsFunction';

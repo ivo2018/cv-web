@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 //import $ from 'jquery'; 
 import folder from "../images/folder.png"
-import skills from "../images/skills.png"
+import skills from "../images/skills2.png";
 import about from "../images/about.png"
 //import message from "../images/message.png"
 import "../components/Work.css"
