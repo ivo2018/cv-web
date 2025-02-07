@@ -791,7 +791,7 @@ margin: 2px;
  -webkit-background-clip: text;
  -webkit-text-fill-color: transparent;
 
- text-shadow: 1px 1px 1px #a69999, 0px 4px 5px #00000042, 1px 1px 1px #ffffff !important;
+ text-shadow:1px 1px 1px #fffee1, 0px 4px 5px #151212fc, 1px 1px 1px #ffffff !important;
  font-family: "Orbitron", sans-serif;
     justify-content: space-around;
     align-items: center;
