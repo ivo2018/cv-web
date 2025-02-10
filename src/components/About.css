@@ -1742,14 +1742,14 @@ outline-offset: -5px; /* Ajusta la distancia del bordeado interno */
 }
 
 .text-line:first-child {
-  font-weight: 700;
+ /* font-weight: 700;*/
   color: #4c625f; /* Color especial para la primera línea */
   font-size: 1.3em;
 }
 
 .highlighted-line {
-  font-weight: 700 !important;
-  color: #232222 !important ;
+  font-weight: 700;
+/*  color: #232222 !important ;*/
   transform: scale(1.03);
   transition: all 0.3s ease; /* Transición específica para el destaque */
 
@@ -1856,7 +1856,7 @@ outline-offset: -5px; /* Ajusta la distancia del bordeado interno */
     font-size: 0.8em;
   }
   .text-line:first-child {
-    font-weight: 700;
+   /* font-weight: 700;*/
     color: #4c625f; /* Color especial para la primera línea */
     font-size: 0.9em;
   }
