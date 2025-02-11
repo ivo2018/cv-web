@@ -520,11 +520,11 @@ const About = (/*{setChange,handleClick}*/) => {
                             </div>*/}
 
                 <div id="code">
-                  <button className="coding" onClick={() => changeAudio(0)} style={{border:`2px ${selectedColor} solid`}}>
+                  <button className="coding" onClick={() => changeAudio(0)} style={{border:`2px ${selectedColor} double`}}>
                     <div id="coding2" style={{ display: "inline-block"}}>
-                      Start
+                     Start
                       <br></br>
-                      &lt;/&gt;
+                    {/*   &lt;/&gt; */}
                     </div>
                     <br></br>
                   </button>
