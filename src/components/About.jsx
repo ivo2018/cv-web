@@ -10,6 +10,7 @@ import about from "../images/about.png";
 
 //import marcador from "../images/marcador.png"
 import close from "../images/close-icon.png";
+import close2 from "../images/About/close2.png";
 import world from "../images/Icons/world98.png";
 
 //import SelectionPage from './SelectionPage';
@@ -477,7 +478,7 @@ const About = (/*{setChange,handleClick}*/) => {
           
           <div class="homePage__about-title">
             <a href=" ">About</a>
-            <img src={close} alt="" onClick={() => closeWindow()}    style={{border:`4px outset ${selectedColor}40` }}></img>
+            <img src={close2} alt="" onClick={() => closeWindow()}    style={{border:`4px outset ${selectedColor}40` }}></img>
           </div>
           <div class="homePage__content">
             <div
