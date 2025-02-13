@@ -1291,7 +1291,7 @@ z-index: 0;
 @media (max-width:768px) {
   .homePage__about-title img {
  
-    right: 2%;
+  display: none;
   }
   
 }
