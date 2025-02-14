@@ -490,7 +490,7 @@ const About = (/*{setChange,handleClick}*/) => {
       onClick={toggleLanguage} 
       style={{
         border:`4px outset ${selectedColor}40` ,
-        fontSize: "12px",
+        fontSize: "12.5px",
         fontWeight: "bold",
         color:"whitesmoke",
         borderRadius: "6px",
