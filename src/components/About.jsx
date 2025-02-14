@@ -622,9 +622,10 @@ const fullTextSpanish = useMemo(() => [
     >
       {line.split('').map((char, charIndex) => {
         const isImaginationWord = 
-          line === "my projects, let my imagination" && 
-          charIndex >= 20&& 
-          charIndex <= 50;
+        ((line === "my projects, let my imagination" && (charIndex >= 20 && charIndex <= 50)) || 
+        (line === "mis proyectos, dejo volar mi imaginación" && (charIndex >= 29 && charIndex <= 50)))
+       
+    
         
         return (
           <span 
@@ -649,9 +650,9 @@ const fullTextSpanish = useMemo(() => [
     >
       {line.split('').map((char, charIndex) => {
         const isWorkWord = 
-          line === "interested in my work or " && 
-          charIndex >= 17 && 
-          charIndex <= 20;
+        ((line === "interested in my work or " && (charIndex >= 17 && charIndex <= 20)) || 
+        (line === "mi trabajo o una" && (charIndex >= 3 && charIndex <= 9)))
+       
 
         return (
           <span 
