@@ -249,6 +249,9 @@ const fullTextSpanish = useMemo(() => [
 "mi trabajo o una",
 "colaboración."
 ], []);
+const [selectedColor, setSelectedColor] = useState(/*"#0BB58E"*//*"#324641"*/"#94B8AE");
+const [showColorPicker, setShowColorPicker] = useState(false);
+const underlineColor = selectedColor;
   const [visibleLines, setVisibleLines] = useState([]);
   const [secondVisibleLines, setSecondVisibleLines] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -286,8 +289,9 @@ const fullTextSpanish = useMemo(() => [
       }, 1000);
     }
   } , [language,currentIndex,animationTyping,fullTextEnglish,fullTextSpanish]);
-  
+  const pickerRef = useRef(null);
   useEffect(() => {
+
     let secondText = language === "es" ? secondTextSpanish : secondTextEnglish;
     if (showSecondText && secondCurrentIndex < secondText.length) {
       const baseDelay = 1900;
@@ -300,7 +304,17 @@ const fullTextSpanish = useMemo(() => [
       
       return () => clearTimeout(timer);
     }
-  }, [showSecondText, secondCurrentIndex,language,secondTextEnglish,secondTextSpanish]);
+    const handleClickOutside = (event) => {
+      if (pickerRef.current && !pickerRef.current.contains(event.target)) {
+        setShowColorPicker(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showSecondText, secondCurrentIndex,language,secondTextEnglish,secondTextSpanish,selectedColor,showColorPicker]);
   
 
   
@@ -402,17 +416,18 @@ const fullTextSpanish = useMemo(() => [
     // Convertir de vuelta a HEX y formatear con padding
     return `#${r.toString(16).padStart(2, "0")}${g.toString(16).padStart(2, "0")}${b.toString(16).padStart(2, "0")}`;
 }
-  const [selectedColor, setSelectedColor] = useState(/*"#0BB58E"*//*"#324641"*/"#94B8AE");
-  const [showColorPicker, setShowColorPicker] = useState(false);
-  const underlineColor = selectedColor;
+
 
 
 
   
     const toggleLanguage = () => {
+ 
+      
       setLanguage((prev) => (prev === "es" ? "en" : "es"));
     };
-  
+
+    
   return (
     <div>
       <button id="html-button3">
@@ -512,15 +527,16 @@ const fullTextSpanish = useMemo(() => [
           <div class="homePage__about-title">
             <a href=" ">About</a>
             <button 
+            id="button-language"
       onClick={toggleLanguage} 
       style={{
-        border:`4px outset ${selectedColor}40` ,
+      
         fontSize: "12.5px",
         fontWeight: "bold",
         color:"whitesmoke",
         borderRadius: "6px",
         transition: "background-color 0.2s",
-     
+        "--underline-color": underlineColor +"40",
         cursor: "pointer"
       }}
       onMouseEnter={(e) => e.target.style.backgroundColor = ""}
@@ -530,7 +546,7 @@ const fullTextSpanish = useMemo(() => [
       <span style={{ color: language === "en" ? `rgb(210 210 210)`: "#777" }}> EN</span>
     </button>
     
-            <img src={settings} alt="" /*  onClick={() => closeWindow()} */   onClick={() => setShowColorPicker(!showColorPicker)}    style={{border:`4px outset ${selectedColor}40` }}></img>
+            <img  id="buttonsetting" src={settings} alt="" /*  onClick={() => closeWindow()} */   onClick={() => setShowColorPicker(!showColorPicker) } style={{"--underline-color": underlineColor+"40"}}    ></img>
           </div>
           <div class="homePage__content">
             <div
