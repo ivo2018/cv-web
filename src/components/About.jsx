@@ -527,7 +527,7 @@ const About = (/*{setChange,handleClick}*/) => {
                 alt=""
               />
 
-              <div class="homePage__content-title" style={{textShadow:`2px -4px ${selectedColor}`}}>
+              <div class="homePage__content-title" style={{textShadow:`2px -4px ${selectedColor},5px -8px ${selectedColor}40`}}>
               <h1
   id="content-title"
   style={
@@ -537,7 +537,7 @@ const About = (/*{setChange,handleClick}*/) => {
         // Quita el !important
         }
         
-      : { boxShadow: ` 5px 5px 5px 5px  ${selectedColor}80`, "--underline-color": underlineColor}
+      : { boxShadow: ` 5px 5px 5px 5px  ${selectedColor}80, 8px 8px 8px 8px  ${selectedColor}40`, "--underline-color": underlineColor}
   }
 >
                   Ivo Ortiz
