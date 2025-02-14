@@ -10,7 +10,8 @@ import about from "../images/about.png";
 
 //import marcador from "../images/marcador.png"
 /*import close from "../images/close-icon.png";*/
-import close2 from "../images/About/close2.png";
+/*import close2 from "../images/About/close2.png";*/
+import settings from "../images/About/settings.png";
 import world from "../images/Icons/world98.png";
 
 //import SelectionPage from './SelectionPage';
@@ -297,19 +298,19 @@ const About = (/*{setChange,handleClick}*/) => {
         className="color-picker-container"
         style={{
           display: "inline-block",
+          position:"relative",
+          zIndex:"100",
           background: "white",
           padding: "10px",
           borderRadius: "10px",
           boxShadow: "0 0 10px rgba(0,0,0,0.2)",
-          top: "50px",
-          left: "50px",
-          margin:"auto",
-          marginTop:"-40%",
-          marginLeft:"-40%",
-          zIndex: 100,
+         
+          right: "0px",
+     
+  
         }}
       >
-               <button
+             {/*  <button
           onClick={onClose}
           style={{
             marginTop: "10px",
@@ -332,6 +333,7 @@ const About = (/*{setChange,handleClick}*/) => {
           Cerrar
       
         </button>
+        
         {/* Paleta SketchPicker */}
         <SketchPicker color={localColor} onChange={handleColorChange} />
   
@@ -380,6 +382,12 @@ const About = (/*{setChange,handleClick}*/) => {
   const underlineColor = selectedColor;
 
 
+    const [language, setLanguage] = useState("es");
+  
+    const toggleLanguage = () => {
+      setLanguage((prev) => (prev === "es" ? "en" : "es"));
+    };
+  
   return (
     <div>
       <button id="html-button3">
@@ -393,8 +401,8 @@ const About = (/*{setChange,handleClick}*/) => {
         loop
       ></audio>
       <div class="homePage">
-      <div class="regulador-father" style={{ position: "absolute", left: "-16px", top: "70%" }}>
-      {/* Botón para mostrar la paleta */}
+      <div class="regulador-father" style={{ position: "absolute", left: "80%", top: "10%" }}>
+      {/* Botón para mostrar la paleta 
       <button
       class="regulador-button"
         onClick={() => setShowColorPicker(!showColorPicker)}
@@ -405,11 +413,11 @@ const About = (/*{setChange,handleClick}*/) => {
           cursor: "pointer",
         }}
       >
-  {/*       {/*showColorPicker ? "Ocultar Paleta" : "Mostrar Paleta"}*/}
+  {/*       {/*showColorPicker ? "Ocultar Paleta" : "Mostrar Paleta"}*
          <img class="regulador" src={skills} alt="" style={{height:"auto"}} />
-        {/*  <a href="#a"></a>*/}
+        {/*  <a href="#a"></a>
       </button>
-
+*/}
       {/* Mostrar el selector solo si showColorPicker es true */}
       {showColorPicker && (
         <ColorPicker
@@ -478,7 +486,26 @@ const About = (/*{setChange,handleClick}*/) => {
           
           <div class="homePage__about-title">
             <a href=" ">About</a>
-            <img src={close2} alt="" onClick={() => closeWindow()}    style={{border:`4px outset ${selectedColor}40` }}></img>
+            <button 
+      onClick={toggleLanguage} 
+      style={{
+        border:`4px outset ${selectedColor}40` ,
+        fontSize: "12px",
+        fontWeight: "bold",
+        color:"whitesmoke",
+        borderRadius: "6px",
+        transition: "background-color 0.2s",
+     
+        cursor: "pointer"
+      }}
+      onMouseEnter={(e) => e.target.style.backgroundColor = ""}
+      onMouseLeave={(e) => e.target.style.backgroundColor = ""}
+    >
+      <span style={{ color: language === "es" ? `${selectedColor}40` : "#777" }}>ES</span> /  
+      <span style={{ color: language === "en" ? `${selectedColor}40`: "#777" }}> EN</span>
+    </button>
+    
+            <img src={settings} alt="" /*  onClick={() => closeWindow()} */   onClick={() => setShowColorPicker(!showColorPicker)}    style={{border:`4px outset ${selectedColor}40` }}></img>
           </div>
           <div class="homePage__content">
             <div
@@ -535,7 +562,7 @@ const About = (/*{setChange,handleClick}*/) => {
                     </div>
                     <br></br>
                   </button>
-                  <button className="coding2"         onClick={() => setShowColorPicker(!showColorPicker)} style={showColorPicker? {animation:"pushOff 0.25s linear " }:{animation:"",border:`2px ${selectedColor} double`}}>
+                  <button className="coding2"         onClick={() => setShowColorPicker(!showColorPicker)} style={showColorPicker? {animation:"pushOff 0.25s linear " ,border:`2px ${selectedColor} double`}:{animation:"",border:`2px ${selectedColor} double`}}>
                     <div id="coding2" style={{ display: "inline-block"}}>
                      Config
                       <br></br>
