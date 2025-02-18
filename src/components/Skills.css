@@ -32,15 +32,19 @@
     padding-top: 15px;
     font-size: 2vh;
     font-weight: 600;
-    color:#acacac;
-  /*  text-shadow: 0.5px 0.5px rgb(151, 129, 129);*/
-  text-shadow: 0.5px 0.5px rgb(255 246 246);
+    color: #acacac;
+    /* text-shadow: 0.5px 0.5px rgb(151, 129, 129); */
+    text-shadow: 0.5px 0.5px rgb(255 246 246);
     overflow: hidden;
     width: 60px;
     z-index: 20;
-   /* text-shadow: 1px 1px rgb(83, 175, 179);*/
-   /*font-family: 'Shadows Into Light', cursive;*/
-   letter-spacing: 0.5px;
+    /* text-shadow: 1px 1px rgb(83, 175, 179); */
+    /* font-family: 'Shadows Into Light', cursive; */
+   /* letter-spacing: 0.5px;
+    border: 2px double rgb(172 170 145);
+    background-color: rgb(255 200 13 / 14%);
+    width: 19%;
+    box-shadow: 0px 5px 2px 5px #cbca8a75;*/
 
 }
 
@@ -61,12 +65,19 @@
     color:#acacac;
   /*  text-shadow: 0.5px 0.5px rgb(151, 129, 129);*/
   text-shadow: 0.5px 0.5px rgb(255 246 246);
+  width: 60px;
  /* font-family: 'Shadows Into Light', cursive;*/
-  letter-spacing: 0.5px;
+ /* letter-spacing: 0.5px;
     overflow: hidden;
     width: 60px;
     z-index: 20;
-    /*text-shadow: 1px 1px rgb(83, 175, 179);*/
+
+    letter-spacing: 0.5px;
+    border: 2px double rgb(145 172 153);
+    background-color: rgb(42 255 13 / 14%);
+    width: 19%;
+    box-shadow: 0px 5px 2px 5px #8acb8a75;
+    */
 }
 
 .collectionItem:nth-child(3)::before {
@@ -83,8 +94,12 @@
     width: 60px;
     z-index: 20;
   /*  font-family: 'Shadows Into Light', cursive;*/
-    letter-spacing: 0.5px;
-    /*text-shadow: 1px 1px rgb(83, 175, 179);*/
+  /*letter-spacing: 0.5px;
+  border: 2px double rgb(145 171 172);
+  background-color: rgb(13 255 245 / 14%);
+  width: 19%;
+  box-shadow: 0px 5px 2px 5px #8ac4cb75;
+*/
 }
 @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
 
@@ -100,10 +115,13 @@
     overflow: hidden;
     width: 60px;
     z-index: 20;
-
+    /*
     letter-spacing: 0.5px;
+    border: 2px double rgb(172 145 154);
+    background-color: rgb(255 13 146 / 14%);
+    width: 19%;
+    box-shadow: 0px 5px 2px 5px #cb8a9c75;*/
 
-   /* text-shadow: 1px 1px rgb(83, 175, 179);*/
 }
 .icon-container {
     margin: auto; /* Centra el contenedor dentro de su elemento padre */
@@ -499,21 +517,21 @@ inset 0px 0px 25px 2px rgb(255, 255, 255),0px 0px 20px 1px rgba(0, 0, 0, 0),
 
 }
 #item{
-    transform: rotate(-1deg);
+   /* transform: rotate(-1deg);*/
 }
 
 #item,#item2,#item3,#item4{
     animation: shain 2s infinite;
 }
 #item3{
-    transform: rotate(-1deg);
-    top: 8px;
+   /* transform: rotate(-1deg);
+    top: 8px;*/
 }
 #itiem4{
-    transform: rotate(-8deg);
+  /*  transform: rotate(-8deg);*/
 }
 #item2{
-    transform: rotate(10deg);
+    /*transform: rotate(10deg);*/
   /*  animation:shainrotate 2s linear forwards;*/
 }
 @keyframes shainrotate {

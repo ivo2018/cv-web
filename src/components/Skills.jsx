@@ -42,6 +42,7 @@ import public_note_green from "../images/Skills/public_note_green2.png";
 import pack_notas from "../images/Skills/pack_notas.png";
 import tacho_basura from "../images/Skills/tacho-basura.png";
 
+import InteractiveWheel from './InteractiveWheel';
 const Skills = (/*{setChange,handleClick}*/) => {
     //  const [count, setCount] = useState(0);
     const [item2, setItem] = useState(0);
@@ -59,6 +60,8 @@ const Skills = (/*{setChange,handleClick}*/) => {
     const bigItemRefNotas = useRef(null);
     const bigItemRefBigNota = useRef(null);
 
+    
+ 
     const handleColorChange = async (color) => { 
         // Verifica que notaSeleccionada tenga un ID válido
     
@@ -398,8 +401,33 @@ const Skills = (/*{setChange,handleClick}*/) => {
                                 </div>
                                 <div id="item4" className="collectionItem" onClick={() => Nota("item4") + setItem("item4")}>
                                     <img src={PinkNote} alt="" />
+                                   
                                 </div>
 
+                            </div>
+                            <div>
+                                <InteractiveWheel/>
+                        {/*    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '50px' }}>
+      <Wheel
+        mustStartSpinning={mustSpin}
+        prizeNumber={prizeNumber}
+        data={data}
+        // Colores de fondo opcionales para alternar en los segmentos
+        backgroundColors={['#3e3e3e', '#df3428']}
+        textColors={['#ffffff']}
+        onStopSpinning={() => {
+          setMustSpin(false);
+          alert("El ganador es: " + data[prizeNumber].option);
+          // Aquí puedes agregar la lógica para mostrar la pantalla correspondiente a cada opción
+        }}
+      />
+      <button 
+        onClick={handleSpinClick} 
+        style={{ marginTop: '20px', padding: '10px 20px', fontSize: '16px' }}
+      >
+        Girar
+      </button>
+    </div>*/}
                             </div>
                             <div id="bigItem" className="collectionBigItem" >
                                 <div ><button style={{ color: "red",display:"none" }} onClick={() => setBonus(true)} >Bonus</button></div>
