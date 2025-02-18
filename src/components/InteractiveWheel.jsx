@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-const InteractiveWheel = () => {
+const InteractiveWheel = ({ onColorChange }) => {
   const [rotation, setRotation] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startAngle, setStartAngle] = useState(0);
@@ -132,7 +132,17 @@ const InteractiveWheel = () => {
     lastTimeRef.current = Date.now();
     animateInertia();
   };
+  useEffect(() => {
+    if (velocityRef.current === 0) {
+      const colors = ['Azul', 'Rosa', 'Verde', 'Amarillo'];
+      const normalizedRotation = ((rotation % 360) + 360) % 360;
+      const sectionIndex = Math.floor(normalizedRotation / 90);
+      const selectedColor = colors[sectionIndex];
 
+      console.log("Color seleccionado:", selectedColor);
+      onColorChange(selectedColor); // Pasamos el color a Skill
+    }
+  }, [rotation, onColorChange]);
   return (
     <div>
       <div

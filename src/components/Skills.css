@@ -521,7 +521,7 @@ inset 0px 0px 25px 2px rgb(255, 255, 255),0px 0px 20px 1px rgba(0, 0, 0, 0),
 }
 
 #item,#item2,#item3,#item4{
-    animation: shain 2s infinite;
+  /*  animation: shain 2s infinite; */
 }
 #item3{
    /* transform: rotate(-1deg);

@@ -330,7 +330,27 @@ const Skills = (/*{setChange,handleClick}*/) => {
         };
     }, []);
     
+    const handleColorChange2 = (color) => {
+        
+        console.log(`Estoy en skill y el color es este ${color}`);
     
+        const itemColors = {
+            Amarillo: "item",
+            Verde: "item2",
+            Azul: "item3",
+            Rosa: "item4"
+        };
+    
+        // Verifica si el color existe en el objeto
+        if (itemColors[color]) {
+            const item = document.getElementById(itemColors[color]);
+            if (item) {
+                item.style.animation = "shain 2s infinite";
+            }
+        }
+    };
+    
+      
     return (
         <div>    <button id="html-button3">
             <img src={world} onClick={() => closeWindow()} alt="" />
@@ -403,7 +423,7 @@ const Skills = (/*{setChange,handleClick}*/) => {
 
                             </div>
                             <div>
-                        <InteractiveWheel/>
+                    <InteractiveWheel onColorChange={handleColorChange2} />
                             </div>
                             <div id="bigItem" className="collectionBigItem" >
                                 <div ><button style={{ color: "red",display:"none" }} onClick={() => setBonus(true)} >Bonus</button></div>
