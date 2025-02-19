@@ -46,7 +46,7 @@ const Skills = (/*{setChange,handleClick}*/) => {
     //  const [count, setCount] = useState(0);
     const [item2, setItem] = useState(0);
     const [bonus, setBonus] = useState(false);
-
+    const [firstSpin, setFirstSpin] = useState(true); // Estado para la primera vez
     const [notas, setNotas] = useState(false);
     
 
@@ -329,9 +329,13 @@ const Skills = (/*{setChange,handleClick}*/) => {
             document.removeEventListener('touchstart', handleClickOutside); // Limpia eventos táctiles
         };
     }, []);
-    
+
     const handleColorChange2 = (color) => {
-        
+        if (firstSpin) {
+            console.log("Ignorando el primer giro para evitar selección automática");
+            setFirstSpin(false); // Desactiva la restricción después del primer uso
+            return;
+        }
         console.log(`Estoy en skill y el color es este ${color}`);
     
         const itemColors = {

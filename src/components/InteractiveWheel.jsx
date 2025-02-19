@@ -6,7 +6,8 @@ const InteractiveWheel = ({ onColorChange }) => {
   const [startAngle, setStartAngle] = useState(0);
   const wheelRef = useRef(null);
   const animationRef = useRef(null);
-  
+  const [hasSpun, setHasSpun] = useState(false); // Nuevo estado para detectar el primer giro
+
   // Referencias para valores mutables
   const velocityRef = useRef(0);
   const lastTimeRef = useRef(Date.now());
@@ -62,6 +63,7 @@ const InteractiveWheel = ({ onColorChange }) => {
   const handleMouseUp = () => {
     setIsDragging(false);
     animateInertia();
+
   };
 
   // Funciones para eventos touch (mapean a los de mouse)
@@ -75,11 +77,13 @@ const InteractiveWheel = ({ onColorChange }) => {
     e.preventDefault();
     const touch = e.touches[0];
     handleMouseMove({ clientX: touch.clientX, clientY: touch.clientY });
+    
   };
 
   const handleTouchEnd = (e) => {
     e.preventDefault();
     handleMouseUp();
+    
   };
 
   const cancelAnimation = () => {
@@ -90,6 +94,7 @@ const InteractiveWheel = ({ onColorChange }) => {
   };
 
   const animateInertia = () => {
+
     const animate = () => {
       const now = Date.now();
       const deltaTime = (now - lastTimeRef.current) / 1000;
@@ -110,11 +115,15 @@ const InteractiveWheel = ({ onColorChange }) => {
 
       // Actualizar rotación
       setRotation(prev => {
+        
         const newRotation = prev + currentVelocity * deltaTime;
+        
         return newRotation % 360;
+
       });
 
       if (Math.abs(velocityRef.current) > 0) {
+        setHasSpun(true); // Indicar que ya se giró al menos una vez
         animationRef.current = requestAnimationFrame(animate);
       }
     };
@@ -128,11 +137,13 @@ const InteractiveWheel = ({ onColorChange }) => {
 
   // Botón adicional para girar (opcional)
   const handleSpinButton = () => {
+    setHasSpun(true); // También marcarlo como girado si se usa el botón
     velocityRef.current = (Math.random() < 0.5 ? -1 : 1) * 2000;
     lastTimeRef.current = Date.now();
     animateInertia();
   };
   useEffect(() => {
+    if (!hasSpun) return; // Evitar llamar a onColorChange antes del primer giro
     if (velocityRef.current === 0) {
       const colors = ['Azul', 'Rosa', 'Verde', 'Amarillo'];
       const normalizedRotation = ((rotation % 360) + 360) % 360;
@@ -142,7 +153,7 @@ const InteractiveWheel = ({ onColorChange }) => {
       console.log("Color seleccionado:", selectedColor);
       onColorChange(selectedColor); // Pasamos el color a Skill
     }
-  }, [rotation, onColorChange]);
+  }, [rotation, onColorChange,hasSpun]);
   return (
     <div>
       <div
@@ -160,14 +171,17 @@ const InteractiveWheel = ({ onColorChange }) => {
           cursor: 'grab',
           userSelect: 'none',
           margin: '50px auto',
+          /*filter:'drop-shadow(0px 0px 10px black)',*/
         }}
       >
         <svg viewBox="0 0 200 200" width="300" height="300">
-          <g transform={`rotate(${rotation}, 100, 100)`}>
-            <path d="M100,100 L100,0 A100,100 0 0,1 200,100 z" fill="#efe4b0" />
-            <path d="M100,100 L200,100 A100,100 0 0,1 100,200 z" fill="#b8f2aa" />
-            <path d="M100,100 L100,200 A100,100 0 0,1 0,100 z" fill="#ffd5e5" />
-            <path d="M100,100 L0,100 A100,100 0 0,1 100,0 z" fill="#b3e5ef" />
+          <g transform={`rotate(${rotation}, 100, 100)`} style={{/*outline:"2px solid silver",// Borde visible
+    borderRadius: "20%"*/ }}>
+            <path d="M100,100 L100,0 A100,100 0 0,1 200,100 z" fill="#efe4b0"style={{ filter:"drop-shadow(0px 0px 10px rgba(222, 222, 150, 0.29))"}} />
+            
+            <path d="M100,100 L200,100 A100,100 0 0,1 100,200 z" fill="#b8f2aa" style={{ filter:"drop-shadow(0px 0px 10px rgba(150, 222, 150, 0.36))"}} />
+            <path d="M100,100 L100,200 A100,100 0 0,1 0,100 z" fill="#ffd5e5" style={{ filter:"drop-shadow(0px 0px 10px rgba(222, 150, 203, 0.27))"}} />
+            <path d="M100,100 L0,100 A100,100 0 0,1 100,0 z" fill="#b3e5ef" style={{ filter:"drop-shadow(0px 0px 10px rgba(150, 214, 222, 0.27))"}} />
           </g>
           <polygon points="95,10 105,10 100,0" fill="black" />
         </svg>
