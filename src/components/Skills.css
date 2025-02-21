@@ -161,6 +161,10 @@
     align-items: center;
     position: relative;
 }
+.collectionItemExplote::before {
+    content: "" !important; /* Vaciar el contenido de ::before solo para el div que ha sido seleccionado */
+  }
+  
 
 .collectionItem img {
     width: 60px;

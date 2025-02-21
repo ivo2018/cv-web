@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 
+
 const InteractiveWheel = ({ onColorChange }) => {
+    
   const [rotation, setRotation] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startAngle, setStartAngle] = useState(0);
@@ -256,6 +258,9 @@ const InteractiveWheel = ({ onColorChange }) => {
       <div style={{ textAlign: "center" }}>
         <button onClick={handleSpinButton}>Girar</button>
       </div>
+
+
+  
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 import folder from "../images/folder.png"
-
+import ExplosionParticle from "./ExplosionParticle.jsx";
 import about from "../images/about.png"
 import close from "../images/close-icon.png";
 import software from "../images/Icons/DesarrolloDeSoftware.png";
@@ -48,7 +48,6 @@ const Skills = (/*{setChange,handleClick}*/) => {
     const [bonus, setBonus] = useState(false);
     const [firstSpin, setFirstSpin] = useState(true); // Estado para la primera vez
     const [notas, setNotas] = useState(false);
-    
 
     const [descripcion, setDescripcion] = useState('');
     const [listaNotas, setListaNotas] = useState([]);
@@ -330,29 +329,47 @@ const Skills = (/*{setChange,handleClick}*/) => {
         };
     }, []);
 
+    const [explosionDiv, setExplosionDiv] = useState(null); // Para controlar qué div tiene la explosión
+
     const handleColorChange2 = (color) => {
         if (firstSpin) {
-            console.log("Ignorando el primer giro para evitar selección automática");
-            setFirstSpin(false); // Desactiva la restricción después del primer uso
-            return;
+          console.log("Ignorando el primer giro para evitar selección automática");
+          setFirstSpin(false); // Desactiva la restricción después del primer uso
+          return;
         }
+        
         console.log(`Estoy en skill y el color es este ${color}`);
-    
+      
         const itemColors = {
-            Amarillo: "item",
-            Verde: "item2",
-            Azul: "item3",
-            Rosa: "item4"
+          Amarillo: "item",
+          Verde: "item2",
+          Azul: "item3",
+          Rosa: "item4"
         };
-    
-        // Verifica si el color existe en el objeto
+      
         if (itemColors[color]) {
-            const item = document.getElementById(itemColors[color]);
-            if (item) {
-                item.style.animation = "shain 2s infinite";
-            }
+          const item = document.getElementById(itemColors[color]);
+          if (item) {
+            item.style.animation = "shain 2s";
+            
+            setExplosionDiv(item); // Esto indica que ese div debe tener la explosión
+
+            // Esperamos 2 segundos (la duración de la animación "shain") antes de ocultar la imagen
+            setTimeout(() => {
+                item.classList.add('collectionItemExplote'); // Eliminar la clase 'before' para cambiar el estado
+
+              // Ocultamos la imagen
+              const image = item.querySelector("img"); // Seleccionamos la imagen dentro del div
+              if (image) {
+                image.style.opacity = "0"; // Hacemos la imagen invisible
+                image.style.pointerEvents = "none"; // Desactivamos los eventos de clic en la imagen
+
+              }
+            }, 1000); // Retraso de 2 segundos
+          }
         }
-    };
+      };
+      
     
       
     return (
@@ -412,16 +429,21 @@ const Skills = (/*{setChange,handleClick}*/) => {
                             <div class="collection">
                                 <div id="item" className="collectionItem" onClick={() => Nota("item") + setItem("item")}>
                                     <img src={YellowNote} alt="" />
+                                    {explosionDiv && explosionDiv.id === "item" &&   <ExplosionParticle color={'#ece4b4'} color2={'#e4e4b9'} color3={'#ece8b4'} />}
                                 </div>
 
                                 <div id="item2" className="collectionItem" onClick={() => Nota("item2") + setItem("item2")}>
                                     <img src={GreenNote} alt="" />
+                                    {explosionDiv && explosionDiv.id === "item2" &&   <ExplosionParticle color={'#b8f2aa'} color2={'#a4c69c'} color3={'#acdca4'} />}
+                                  
                                 </div>
                                 <div id="item3" className="collectionItem" onClick={() => Nota("item3") + setItem("item3")}>
                                     <img src={WhiteNote} alt="" />
+                                    {explosionDiv && explosionDiv.id === "item3" &&   <ExplosionParticle color={'#b4e1e9'} color2={'#9b9fa0'} color3={'#c9d9dc'} />}
                                 </div>
                                 <div id="item4" className="collectionItem" onClick={() => Nota("item4") + setItem("item4")}>
                                     <img src={PinkNote} alt="" />
+                                    {explosionDiv && explosionDiv.id === "item4" &&       <ExplosionParticle color={'#fbd4e3'} color2={'#dcc4cc'} color3={'#ecc4d4'} />}
                                    
                                 </div>
 
