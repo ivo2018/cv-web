@@ -363,7 +363,7 @@ const Skills = (/*{setChange,handleClick}*/) => {
                     item.classList.add('collectionItemExplote'); // Eliminar la clase 'before' para cambiar el estado
                     item.style.height = "100px";
                     item.style.width = "20px";
-                    item.style.background = "#007e7d";
+                  /*  item.style.background = "#007e7d";*/
     
                     // Ocultamos la imagen
                     const image = item.querySelector("img"); // Seleccionamos la imagen dentro del div
@@ -440,12 +440,12 @@ const Skills = (/*{setChange,handleClick}*/) => {
 
                                 <div id="item2" className="collectionItem" onClick={() => Nota("item2") + setItem("item2")}>
                                     <img src={GreenNote} alt="" />
-                                    {explosionDiv && explosionDiv.id === "item2" &&   <ExplosionParticle color={'#b8f2aa'} color2={'#a4c69c'} color3={'#acdca4'} />}
+                                    {explosionDiv && explosionDiv.id === "item2" &&   <ExplosionParticle color={'#61ad61'} color2={'#a4d49c'} color3={'#9cbc94'} />}
                                   
                                 </div>
                                 <div id="item3" className="collectionItem" onClick={() => Nota("item3") + setItem("item3")}>
                                     <img src={WhiteNote} alt="" />
-                                    {explosionDiv && explosionDiv.id === "item3" &&   <ExplosionParticle color={'#b4e1e9'} color2={'#9b9fa0'} color3={'#c9d9dc'} />}
+                                    {explosionDiv && explosionDiv.id === "item3" &&   <ExplosionParticle color={'#b4e1e9'} color2={'#61a3ad'} color3={'#337b86'} />}
                                 </div>
                                 <div id="item4" className="collectionItem" onClick={() => Nota("item4") + setItem("item4")}>
                                     <img src={PinkNote} alt="" />
