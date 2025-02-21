@@ -994,6 +994,10 @@ background-repeat: no-repeat;
 #tsparticles {
     border-radius: 15px; /* Ajusta el valor según lo necesites */
     overflow: hidden; /* Evita que las partículas se salgan de los bordes */
-    
-      
+    position: relative;      
+  }
+  @media  (max-width:768px){
+    #tsparticles {
+   top:15px;    
+      }
   }
